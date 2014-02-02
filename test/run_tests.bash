@@ -4,7 +4,7 @@ DONE="Verified - you are done"
 NOT_DONE="No - you are not done"
 
 main() {
-   for((x=1;x<=1;x++))
+   for((x=1;x<=2;x++))
    do
        if [[ ${x} -lt 10 ]]
        then
@@ -26,6 +26,11 @@ main() {
 solution_for_scenario_01() {
     echo '{print $2}' > answer.awk
 }
+
+solution_for_scenario_02() {
+    echo '$6 == "m"' > answer.awk
+}
+
 test_that_verification_fails_for_scenario() {
     if [[ $(bash scenario_${1}.bash --verify) == ${NOT_DONE} ]] 
     then
