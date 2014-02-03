@@ -4,7 +4,7 @@ DONE="Verified - you are done"
 NOT_DONE="No - you are not done"
 
 main() {
-   for((x=1;x<=4;x++))
+   for((x=1;x<=5;x++))
    do
        if [[ ${x} -lt 10 ]]
        then
@@ -37,6 +37,10 @@ solution_for_scenario_03() {
 
 solution_for_scenario_04() {
     echo 'BEGIN {RS=":";FS=","} ; $7 > 42' > answer.awk
+}
+
+solution_for_scenario_05() {
+    echo '($4/356) > 3 && ($7 > 40) && ($3 < 21500)' > answer.awk
 }
 
 test_that_verification_fails_for_scenario() {
