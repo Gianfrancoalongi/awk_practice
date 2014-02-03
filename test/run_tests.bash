@@ -4,7 +4,7 @@ DONE="Verified - you are done"
 NOT_DONE="No - you are not done"
 
 main() {
-   for((x=1;x<=3;x++))
+   for((x=1;x<=4;x++))
    do
        if [[ ${x} -lt 10 ]]
        then
@@ -35,11 +35,15 @@ solution_for_scenario_03() {
     echo 'BEGIN {FS=","} ; $6 == "m"' > answer.awk
 }
 
+solution_for_scenario_04() {
+    echo 'BEGIN {RS=":";FS=","} ; $7 > 42' > answer.awk
+}
+
 test_that_verification_fails_for_scenario() {
-    if [[ $(bash scenario_${1}.bash --verify) == ${NOT_DONE} ]] 
+    if [[ $(bash scenario_${1}.bash --verify) == ${NOT_DONE} ]]
     then
     	echo "T${1}_neg passed"
-    else 
+    else
     	echo "T${1}_neg failed"
     fi
 }
@@ -47,8 +51,8 @@ test_that_verification_fails_for_scenario() {
 test_that_verification_passes_for_scenario() {
     if [[ $(bash scenario_${1}.bash --verify) == ${DONE} ]]
     then
-	echo "T${1}_pos passed" 
-    else 
+	echo "T${1}_pos passed"
+    else
 	echo "T${1}_pos failed"
     fi
 }
