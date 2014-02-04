@@ -48,7 +48,7 @@ check_that_answer_prints_occurrences_of_numbers() {
 9 266
 EOF
     ACTUAL_FILE=$(mktemp)
-    awk -f answer.awk testdata_2.txt > ${ACTUAL_FILE} 2> /dev/null
+    awk -f answer.awk testdata_4.txt > ${ACTUAL_FILE} 2> /dev/null
     diff ${FACIT_FILE} ${ACTUAL_FILE} &> /dev/null
     if [[ $? == 0 ]]
     then

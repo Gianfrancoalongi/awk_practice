@@ -57,7 +57,7 @@ solution_for_scenario_08() {
 
 solution_for_scenario_09() {
     cat > answer.awk <<EOF
-{ for(n=1;n<=NF;n++) arr[$n]++ }
+{ for(n=1;n<=NF;n++) arr[\$n]++ }
 END { for (i=0;i<length(arr);i++) print i, arr[i] }
 EOF
 }
