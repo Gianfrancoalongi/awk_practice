@@ -4,7 +4,7 @@ DONE="Verified - you are done"
 NOT_DONE="No - you are not done"
 
 main() {
-   for((x=1;x<=8;x++))
+   for((x=1;x<=9;x++))
    do
        if [[ ${x} -lt 10 ]]
        then
