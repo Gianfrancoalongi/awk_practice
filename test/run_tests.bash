@@ -4,7 +4,7 @@ DONE="Verified - you are done"
 NOT_DONE="No - you are not done"
 
 main() {
-   for((x=1;x<=7;x++))
+   for((x=1;x<=8;x++))
    do
        if [[ ${x} -lt 10 ]]
        then
@@ -49,6 +49,10 @@ solution_for_scenario_06() {
 
 solution_for_scenario_07() {
     echo 'NR > 1 && $3 > max { max = $3 }; END {print max}' > answer.awk
+}
+
+solution_for_scenario_08() {
+    echo 'BEGIN{FS=","};NR > 1 {($6 == "m")?++m:++f};END{print m, f}' > answer.awk
 }
 
 test_that_verification_fails_for_scenario() {
