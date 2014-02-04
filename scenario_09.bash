@@ -33,10 +33,19 @@ Chapter 10 Arrays in awk (p81-p88)
 EOF
 }
 
-check_that_answer_prints_the_amount_of_males_and_females() {
+check_that_answer_prints_occurrences_of_numbers() {
     FACIT_FILE=$(mktemp)
     cat > ${FACIT_FILE} <<EOF
-13 20
+0 242
+1 249
+2 260
+3 245
+4 256
+5 229
+6 260
+7 236
+8 275
+9 266
 EOF
     ACTUAL_FILE=$(mktemp)
     awk -f answer.awk testdata_2.txt > ${ACTUAL_FILE} 2> /dev/null

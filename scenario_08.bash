@@ -40,7 +40,7 @@ EOF
 check_that_answer_prints_the_amount_of_males_and_females() {
     FACIT_FILE=$(mktemp)
     cat > ${FACIT_FILE} <<EOF
-13 20
+13 6
 EOF
     ACTUAL_FILE=$(mktemp)
     awk -f answer.awk testdata_2.txt > ${ACTUAL_FILE} 2> /dev/null
