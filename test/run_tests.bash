@@ -55,6 +55,13 @@ solution_for_scenario_08() {
     echo 'BEGIN{FS=","};NR > 1 {($6 == "m")?++m:++f};END{print m, f}' > answer.awk
 }
 
+solution_for_scenario_09() {
+    cat > answer.awk <<EOF
+{ for(n=1;n<=NF;n++) arr[$n]++ }
+END { for (i=0;i<length(arr);i++) print i, arr[i] }
+EOF
+}
+
 test_that_verification_fails_for_scenario() {
     if [[ $(bash scenario_${1}.bash --verify) == ${NOT_DONE} ]]
     then
