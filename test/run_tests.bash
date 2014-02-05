@@ -4,7 +4,7 @@ DONE="Verified - you are done"
 NOT_DONE="No - you are not done"
 
 main() {
-   for((x=1;x<=9;x++))
+   for((x=1;x<=10;x++))
    do
        if [[ ${x} -lt 10 ]]
        then
@@ -60,6 +60,21 @@ solution_for_scenario_09() {
 { for(n=1;n<=NF;n++) arr[\$n]++ }
 END { for (i=0;i<length(arr);i++) print i, arr[i] }
 EOF
+}
+
+solution_for_scenario_10() {
+    cat > answer.awk <<EOF
+{ print_box(\$1,\$2,\$3) }
+function print_box(width,height,body) {
+ for(h=0;h<height;h++) {
+   str=""
+   for(w=0;w<width;w++) 
+     str=body str
+   print str
+ }
+}
+EOF
+    echo 
 }
 
 test_that_verification_fails_for_scenario() {
