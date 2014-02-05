@@ -74,7 +74,6 @@ function print_box(width,height,body) {
  }
 }
 EOF
-    echo 
 }
 
 test_that_verification_fails_for_scenario() {
