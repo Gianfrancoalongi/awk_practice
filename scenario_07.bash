@@ -28,6 +28,8 @@ generate_help_file() {
 cat > help.txt <<EOF
 Chapter 5 Useful "One-liners" (p45)
 Chapter 6.7 BEGIN and END Special Patterns (p53-p54)
+Chapter 13.2 Built-in Variables that Convey Information (p102-p103)
+             specifically NR
 EOF
 }
 

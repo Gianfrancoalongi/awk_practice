@@ -37,6 +37,7 @@ EOF
 
 generate_help_file() {
 cat > help.txt <<EOF
+Chapter 8.4 String Concatenation (p61)
 Chapter 9.4 The for Statement (p75-p76)
 Chapter 12 User-defined Functions (p95-p99)
 EOF

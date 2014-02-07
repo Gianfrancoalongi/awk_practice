@@ -16,7 +16,11 @@ cat > description.txt <<EOF
 Write an awk program (one-liner is also ok) that prints names
 and days hired for all employees on floor 4 from the file
 testdata_1.txt. The output shall be in two columns, each column
-10 characters wide, left justified.
+10 characters wide, left justified, with square brackets around
+each element, as follows
+
+[lars      ][767       ]
+[andre     ][1349      ]
 
 Put your awk program into a file called answer.awk in the
 directory where you executed the scenario script.
@@ -38,11 +42,11 @@ EOF
 check_that_answer_prints_names_and_days_hired_of_all_on_floor_4() {
     FACIT_FILE=$(mktemp)
     cat > ${FACIT_FILE} <<EOF
-becka      633       
-rodriguez  766       
-eron       1330      
-sandro     1349      
-angelica   534       
+[becka     ][633       ]
+[rodriguez ][766       ]
+[eron      ][1330      ]
+[sandro    ][1349      ]
+[angelica  ][534       ]
 EOF
     ACTUAL_FILE=$(mktemp)
     awk -f answer.awk testdata_1.txt > ${ACTUAL_FILE} 2> /dev/null

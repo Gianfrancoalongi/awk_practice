@@ -13,10 +13,10 @@ main() {
 
 generate_description_file() {
 cat > description.txt <<EOF
-Write an awk program (one-liner is also ok) that prints two numbers,
-total amount of males, and females, from the file testdata_2.txt.
-Ensure the printed numbers are in the order of total amount of males,
-and then total amount of females.
+Write an awk program (one-liner is also ok) that prints two 
+numbers: total amount of males, and total amount of females, from
+the file testdata_2.txt. Ensure the printed numbers are in the 
+order of total amount of males, and then total amount of females.
 
 Put your awk program into a file called answer.awk in the
 directory where you executed the scenario script.

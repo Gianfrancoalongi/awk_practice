@@ -44,7 +44,7 @@ solution_for_scenario_05() {
 }
 
 solution_for_scenario_06() {
-    echo '$5 == 4 {printf "%-10s %-10i\n",$2,$4}' > answer.awk
+    echo '$5 == 4 {printf "[%-10s][%-10s]\n",$2,$4}' > answer.awk
 }
 
 solution_for_scenario_07() {

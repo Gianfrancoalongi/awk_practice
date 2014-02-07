@@ -14,7 +14,8 @@ main() {
 generate_description_file() {
 cat > description.txt <<EOF
 Write an awk program (one-liner is also ok) that prints all
-entries which are older than 42 from the testdata_3.txt file.
+employee entries, such that the employee is older than 42, 
+from the testdata_3.txt file.
 
 Put your awk program into a file called answer.awk in the 
 directory where you executed the scenario script.
@@ -26,7 +27,7 @@ EOF
 
 generate_help_file() {
 cat > help.txt <<EOF
-Chapter 3.1 How Input is Split into Record (p21-p22)
+Chapter 3.1 How Input is Split into Records (p21-p22)
 Chapter 3.2 Examining Fields (p22-p23)
 Chapter 3.5 Specifying how Fields are Separated (p25-p29)
 EOF
