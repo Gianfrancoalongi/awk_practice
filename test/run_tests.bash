@@ -4,7 +4,7 @@ DONE="Verified - you are done"
 NOT_DONE="No - you are not done"
 
 main() {
-   for((x=1;x<=10;x++))
+   for((x=1;x<=11;x++))
    do
        if [[ ${x} -lt 10 ]]
        then
@@ -72,6 +72,28 @@ function print_box(width,height,body) {
      str=body str
    print str
  }
+}
+EOF
+}
+
+solution_for_scenario_11() {
+    cat > answer.awk <<EOF
+BEGIN{RS=";"}
+NR==1 {
+    height=\$1
+    width=\$2
+    for(y=1;y<=height;y++)
+        for(x=1;x<=width;x++)
+            image[y,x]=" "
+}
+{ image[\$1,\$2]="@" }
+END{
+    for(y=1;y<=height;y++) {
+        for(x=1;x<=width;x++)
+            printf "%s", image[y,x]
+        printf "\n"
+    }
+
 }
 EOF
 }
