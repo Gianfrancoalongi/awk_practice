@@ -42,24 +42,18 @@ EOF
 }
 
 
-check_that_answer_prints_rectangles_from_input() {
+check_that_answer_prints_image_from_dot_matrix_description() {
     FACIT_FILE=$(mktemp)
     cat > ${FACIT_FILE} <<EOF
-@@@@@@@@@@
-@@@@@@@@@@
-@@@@@@@@@@
-####
-####
-!
-####
-####
-@@@@@@@@@@
-@@@@@@@@@@
-@@@@@@@@@@
+@@@@@  @@  @@  @  @@
+@   @  @    @  @ @
+@@@@@  @ @@ @  @@
+@   @  @ @@ @  @ @
+@   @   @  @   @  @@
 EOF
     ACTUAL_FILE=$(mktemp)
-    awk -f answer.awk testdata_5.txt > ${ACTUAL_FILE} 2> /dev/null
-    diff ${FACIT_FILE} ${ACTUAL_FILE} &> /dev/null
+    awk -f answer.awk testdata_6.txt > ${ACTUAL_FILE} 2> /dev/null
+    diff -b ${FACIT_FILE} ${ACTUAL_FILE} &> /dev/null
     if [[ $? == 0 ]]
     then
 	RES='Verified - you are done'
