@@ -24,8 +24,8 @@ height and width. Thus, given the following input ascii image,
 3 3;1 3;2 1;2 3;3 2;3 3 would be the output from the awk program.
 The initial pair (3 3) describes the height and width of the image.
 
-An ascii image is defined as an rectangular matrix consisting of @'s
-and spaces.
+An ascii image is defined as an rectangular matrix consisting of 
+@'s and spaces.
 
 Put your awk program into a file called answer.awk in the
 directory where you executed the scenario script.
