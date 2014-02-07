@@ -99,7 +99,17 @@ EOF
 }
 
 solution_for_scenario_12() {
-    :
+   cat > answer.awk <<EOF
+BEGIN{FS=""}
+{ for(x=1;x<=NF;x++) {
+    width=NF
+    height=NR
+    if(\$x != " ")
+	res=res ";" NR " " x
+  }
+}
+END{print height,width res}
+EOF
 }
 
 test_that_verification_fails_for_scenario() {

@@ -37,9 +37,8 @@ EOF
 
 generate_help_file() {
 cat > help.txt <<EOF
+Chapter 3.5 Specifying how Fields are Separated (p25-p29)
 Chapter 9.4 The for Statement (p75-p76)
-Chapter 10.8 Multi-dimensional Arrays (p86-p87)
-Chapter 12 User-defined Functions (p95-p99)
 EOF
 }
 
@@ -47,7 +46,7 @@ EOF
 check_that_answer_generates_dot_matrix_description() {
     FACIT_FILE=$(mktemp)
     cat > ${FACIT_FILE} <<EOF
-5 20;1 1;1 2;1 3;1 4;1 5;1 8;1 9;1 12;1 13;1 16;1 19;1 20;2 1;2 5;2 8;2 13;2 16;2 18;3 1;3 2;3 3;3 4;3 5;3 8;3 10;3 11;3 13;3 16;3 17;4 1;4 5;4 8;4 10;4 11;4 13;4 16;4 18;5 1;5 5;5 9;5 12;5 16;5 19
+5 20;1 1;1 2;1 3;1 4;1 5;1 8;1 9;1 12;1 13;1 16;1 19;1 20;2 1;2 5;2 8;2 13;2 16;2 18;3 1;3 2;3 3;3 4;3 5;3 8;3 10;3 11;3 13;3 16;3 17;4 1;4 5;4 8;4 10;4 11;4 13;4 16;4 18;5 1;5 5;5 9;5 12;5 16;5 19;5 20
 EOF
     ACTUAL_FILE=$(mktemp)
     awk -f answer.awk testdata_7.txt > ${ACTUAL_FILE} 2> /dev/null
