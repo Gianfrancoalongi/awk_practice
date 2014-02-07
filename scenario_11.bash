@@ -29,7 +29,7 @@ Put your awk program into a file called answer.awk in the
 directory where you executed the scenario script.
 
 Your answer will be executed the following way by the system.
-             awk -f answer.awk testdata_5.txt
+             awk -f answer.awk testdata_6.txt
 EOF
 }
 
