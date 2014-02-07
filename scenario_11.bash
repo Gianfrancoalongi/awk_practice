@@ -13,17 +13,17 @@ main() {
 
 generate_description_file() {
 cat > description.txt <<EOF
-Write an awk program (one-liner is also ok) that prints rectangles
 Write an awk program (one-liner is also ok) that produces ascii 
 images based on the dot matrix description in testdata_6.txt.
 A dot matrix description is a sequence semicolon-delimited 
 coordinates [y x](;) which starts with a description of the image
 height and width. Thus 3 3;1 3;2 1;2 3;3 2;3 3
 would describe the following image (t=0 for the glider).
-  *
-* *
- **
+  @
+@ @
+ @@
 The initial pair (3 3) describes the height and width of the image.
+The images are to be built of @'s.
 
 Put your awk program into a file called answer.awk in the
 directory where you executed the scenario script.
