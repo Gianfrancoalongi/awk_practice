@@ -4,7 +4,7 @@ DONE="Verified - you are done"
 NOT_DONE="No - you are not done"
 
 main() {
-   for((x=1;x<=11;x++))
+   for((x=1;x<=12;x++))
    do
        if [[ ${x} -lt 10 ]]
        then
@@ -96,6 +96,10 @@ END{
 
 }
 EOF
+}
+
+solution_for_scenario_12() {
+    :
 }
 
 test_that_verification_fails_for_scenario() {
