@@ -2,7 +2,6 @@
 
 ANSWER_FILE=answer_01.awk
 SCENARIO_DIR=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
-CURRENT_DIR=$(pwd)
 
 main() {
     . ${SCENARIO_DIR}/functions.bash
