@@ -1,15 +1,19 @@
 #!/bin/bash
 
+SCENARIO_DIR=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
+DESCRIPTION_FILE=${SCENARIO_DIR}/description.txt
+HELP_FILE=${SCENARIO_DIR}/help.txt
+
 cat <<EOF
 =================================================================
 EOF
-cat description.txt
+cat ${DESCRIPTION_FILE}
 cat <<EOF
 =================================================================
 Reading in 'The Awk Manual'     http://tinyurl.com/the-awk-manual
 
 EOF
-cat help.txt
+cat ${HELP_FILE}
 cat <<EOF
 =================================================================
 Run this script as
