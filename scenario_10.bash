@@ -1,6 +1,10 @@
 #!/bin/bash
 
+ANSWER_FILE=answer_10.awk
+SCENARIO_DIR=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
+
 main() {
+    . ${SCENARIO_DIR}/functions.bash
 	if [[ ${1} == "--verify" ]]
 	then
 	    check_that_answer_prints_rectangles_from_input
@@ -27,11 +31,11 @@ made from . (dot). It would look like this
 		 ..........
 		 ..........
 
-Put your awk program into a file called answer.awk in the
+Put your awk program into a file called ${ANSWER_FILE} in the
 directory where you executed the scenario script.
 
 Your answer will be executed the following way by the system.
-             awk -f answer.awk testdata_5.txt
+             awk -f ${ANSWER_FILE} testdata_5.txt
 EOF
 }
 
@@ -45,7 +49,7 @@ EOF
 
 
 check_that_answer_prints_rectangles_from_input() {
-    FACIT_FILE=$(mktemp)
+    FACIT_FILE=$(mktemp /tmp/AWKPRACTICE_XXXXXXXX)
     cat > ${FACIT_FILE} <<EOF
 @@@@@@@@@@
 @@@@@@@@@@
@@ -59,17 +63,18 @@ check_that_answer_prints_rectangles_from_input() {
 @@@@@@@@@@
 @@@@@@@@@@
 EOF
-    ACTUAL_FILE=$(mktemp)
-    awk -f answer.awk testdata_5.txt > ${ACTUAL_FILE} 2> /dev/null
-    diff ${FACIT_FILE} ${ACTUAL_FILE} &> /dev/null
-    if [[ $? == 0 ]]
-    then
-	RES='Verified - you are done'
-    else
-	RES='No - you are not done'
-    fi
-    rm ${FACIT_FILE} ${ACTUAL_FILE}
-    echo ${RES}
+    check_answer ${FACIT_FILE} ${SCENARIO_DIR}/testdata_5.txt
+    # ACTUAL_FILE=$(mktemp /tmp/AWKPRACTICE_XXXXXXXX)
+    # awk -f ${ANSWER_FILE} testdata_5.txt > ${ACTUAL_FILE} 2> /dev/null
+    # diff ${FACIT_FILE} ${ACTUAL_FILE} &> /dev/null
+    # if [[ $? == 0 ]]
+    # then
+    #     RES='Verified - you are done'
+    # else
+    #     RES='No - you are not done'
+    # fi
+    # rm ${FACIT_FILE} ${ACTUAL_FILE}
+    # echo ${RES}
 }
 
 main $@

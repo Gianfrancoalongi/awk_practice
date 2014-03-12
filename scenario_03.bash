@@ -1,6 +1,10 @@
 #!/bin/bash
 
+ANSWER_FILE=answer_03.awk
+SCENARIO_DIR=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
+
 main() {
+    . ${SCENARIO_DIR}/functions.bash
 	if [[ ${1} == "--verify" ]]
 	then
 	    check_that_answer_prints_only_males
@@ -16,11 +20,11 @@ cat > description.txt <<EOF
 Write an awk program (one-liner is also ok) that prints all
 entries which are males from the testdata_2.txt file.
 
-Put your awk program into a file called answer.awk in the 
+Put your awk program into a file called ${ANSWER_FILE} in the 
 directory where you executed the scenario script.
 
 Your answer will be executed the following way by the system.
-             awk -f answer.awk testdata_2.txt
+             awk -f ${ANSWER_FILE} testdata_2.txt
 EOF
 }
 
@@ -31,7 +35,7 @@ EOF
 }
 
 check_that_answer_prints_only_males() {
-    FACIT_FILE=$(mktemp)
+    FACIT_FILE=$(mktemp /tmp/AWKPRACTICE_XXXXXXXX)
     cat > ${FACIT_FILE} <<EOF
 7369,manuel,21720,936,7,m,31
 7499,jonny,21374,511,5,m,35
@@ -47,17 +51,18 @@ check_that_answer_prints_only_males() {
 7190,patrick,21577,898,5,m,44
 7673,tony,21860,597,3,m,34
 EOF
-    ACTUAL_FILE=$(mktemp)
-    awk -f answer.awk testdata_2.txt > ${ACTUAL_FILE} 2> /dev/null
-    diff -b -q ${FACIT_FILE} ${ACTUAL_FILE} &> /dev/null
-    if [[ $? == 0 ]]
-    then
-	RES='Verified - you are done'
-    else
-	RES='No - you are not done'
-    fi
-    rm ${FACIT_FILE} ${ACTUAL_FILE}
-    echo ${RES}
+    check_answer ${FACIT_FILE} ${SCENARIO_DIR}/testdata_2.txt
+    # ACTUAL_FILE=$(mktemp /tmp/AWKPRACTICE_XXXXXXXX)
+    # awk -f ${ANSWER_FILE} testdata_2.txt > ${ACTUAL_FILE} 2> /dev/null
+    # diff -b -q ${FACIT_FILE} ${ACTUAL_FILE} &> /dev/null
+    # if [[ $? == 0 ]]
+    # then
+    # RES='Verified - you are done'
+    # else
+    # RES='No - you are not done'
+    # fi
+    # rm ${FACIT_FILE} ${ACTUAL_FILE}
+    # echo ${RES}
 }
 
 main $@

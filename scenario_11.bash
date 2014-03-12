@@ -1,6 +1,10 @@
 #!/bin/bash
 
+ANSWER_FILE=answer_11.awk
+SCENARIO_DIR=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
+
 main() {
+    . ${SCENARIO_DIR}/functions.bash
 	if [[ ${1} == "--verify" ]]
 	then
 	    check_that_answer_prints_image_from_dot_matrix_description
@@ -25,11 +29,11 @@ would describe the following image (t=0 for the glider).
 The initial pair (3 3) describes the height and width of the image.
 The images are to be built of @'s.
 
-Put your awk program into a file called answer.awk in the
+Put your awk program into a file called ${ANSWER_FILE} in the
 directory where you executed the scenario script.
 
 Your answer will be executed the following way by the system.
-             awk -f answer.awk testdata_6.txt
+             awk -f ${ANSWER_FILE} testdata_6.txt
 EOF
 }
 
@@ -43,7 +47,7 @@ EOF
 
 
 check_that_answer_prints_image_from_dot_matrix_description() {
-    FACIT_FILE=$(mktemp)
+    FACIT_FILE=$(mktemp /tmp/AWKPRACTICE_XXXXXXXX)
     cat > ${FACIT_FILE} <<EOF
 @@@@@  @@  @@  @  @@
 @   @  @    @  @ @
@@ -51,17 +55,18 @@ check_that_answer_prints_image_from_dot_matrix_description() {
 @   @  @ @@ @  @ @
 @   @   @  @   @  @@
 EOF
-    ACTUAL_FILE=$(mktemp)
-    awk -f answer.awk testdata_6.txt > ${ACTUAL_FILE} 2> /dev/null
-    diff -b ${FACIT_FILE} ${ACTUAL_FILE} &> /dev/null
-    if [[ $? == 0 ]]
-    then
-	RES='Verified - you are done'
-    else
-	RES='No - you are not done'
-    fi
-    rm ${FACIT_FILE} ${ACTUAL_FILE}
-    echo ${RES}
+    check_answer ${FACIT_FILE} ${SCENARIO_DIR}/testdata_6.txt
+    # ACTUAL_FILE=$(mktemp /tmp/AWKPRACTICE_XXXXXXXX)
+    # awk -f ${ANSWER_FILE} testdata_6.txt > ${ACTUAL_FILE} 2> /dev/null
+    # diff -b ${FACIT_FILE} ${ACTUAL_FILE} &> /dev/null
+    # if [[ $? == 0 ]]
+    # then
+    #     RES='Verified - you are done'
+    # else
+    #     RES='No - you are not done'
+    # fi
+    # rm ${FACIT_FILE} ${ACTUAL_FILE}
+    # echo ${RES}
 }
 
 main $@

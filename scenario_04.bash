@@ -1,6 +1,10 @@
 #!/bin/bash
 
+ANSWER_FILE=answer_04.awk
+SCENARIO_DIR=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
+
 main() {
+    . ${SCENARIO_DIR}/functions.bash
 	if [[ ${1} == "--verify" ]]
 	then
 	    check_that_answer_prints_only_males
@@ -17,11 +21,11 @@ Write an awk program (one-liner is also ok) that prints all
 employee entries, such that the employee is older than 42, 
 from the testdata_3.txt file.
 
-Put your awk program into a file called answer.awk in the 
+Put your awk program into a file called ${ANSWER_FILE} in the 
 directory where you executed the scenario script.
 
 Your answer will be executed the following way by the system.
-             awk -f answer.awk testdata_3.txt
+             awk -f ${ANSWER_FILE} testdata_3.txt
 EOF
 }
 
@@ -34,7 +38,7 @@ EOF
 }
 
 check_that_answer_prints_only_males() {
-    FACIT_FILE=$(mktemp)
+    FACIT_FILE=$(mktemp /tmp/AWKPRACTICE_XXXXXXXX)
     cat > ${FACIT_FILE} <<EOF
 7211,emily,21399,1253,1,f,49
 7208,eron,21546,1330,4,m,48
@@ -45,17 +49,18 @@ check_that_answer_prints_only_males() {
 7852,andre,21826,1172,6,m,48
 7190,patrick,21577,898,5,m,44
 EOF
-    ACTUAL_FILE=$(mktemp)
-    awk -f answer.awk testdata_3.txt > ${ACTUAL_FILE} 2> /dev/null
-    diff -b -q ${FACIT_FILE} ${ACTUAL_FILE} &> /dev/null
-    if [[ $? == 0 ]]
-    then
-	RES='Verified - you are done'
-    else
-	RES='No - you are not done'
-    fi
-    rm ${FACIT_FILE} ${ACTUAL_FILE}
-    echo ${RES}
+    check_answer ${FACIT_FILE} ${SCENARIO_DIR}/testdata_3.txt
+    # ACTUAL_FILE=$(mktemp /tmp/AWKPRACTICE_XXXXXXXX)
+    # awk -f ${ANSWER_FILE} testdata_3.txt > ${ACTUAL_FILE} 2> /dev/null
+    # diff -b -q ${FACIT_FILE} ${ACTUAL_FILE} &> /dev/null
+    # if [[ $? == 0 ]]
+    # then
+    #     RES='Verified - you are done'
+    # else
+    #     RES='No - you are not done'
+    # fi
+    # rm ${FACIT_FILE} ${ACTUAL_FILE}
+    # echo ${RES}
 }
 
 main $@
