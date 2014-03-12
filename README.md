@@ -16,3 +16,8 @@ are necessary in order to succeed with the task.
 
 
 [1] http://tinyurl.com/the-awk-manual
+
+Tested on:
+* tested on MacOS Mavericks 10.9.1 - GNU bash, version 3.2.51(1)-release (x86_64-apple-darwin13)
+* tested on Windows7 Cygwin - GNU bash, version 4.1.10(4)-release (i686-pc-cygwin)
+* tested on Linux RHEL 6.4 - GNU bash, version 4.1.2(1)-release (x86_64-redhat-linux-gnu)
