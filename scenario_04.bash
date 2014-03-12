@@ -16,7 +16,7 @@ main() {
 }
 
 generate_description_file() {
-cat > description.txt <<EOF
+cat > ${DESCRIPTION_FILE} <<EOF
 Write an awk program (one-liner is also ok) that prints all
 employee entries, such that the employee is older than 42, 
 from the testdata_3.txt file.
@@ -30,7 +30,7 @@ EOF
 }
 
 generate_help_file() {
-cat > help.txt <<EOF
+cat > ${HELP_FILE} <<EOF
 Chapter 3.1 How Input is Split into Records (p21-p22)
 Chapter 3.2 Examining Fields (p22-p23)
 Chapter 3.5 Specifying how Fields are Separated (p25-p29)

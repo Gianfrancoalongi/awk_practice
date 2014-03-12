@@ -16,7 +16,7 @@ main() {
 }
 
 generate_description_file() {
-cat > description.txt <<EOF
+cat > ${DESCRIPTION_FILE} <<EOF
 Write an awk program (one-liner is also ok) that prints two 
 numbers: total amount of males, and total amount of females, from
 the file testdata_2.txt. Ensure the printed numbers are in the 
@@ -31,7 +31,7 @@ EOF
 }
 
 generate_help_file() {
-cat > help.txt <<EOF
+cat > ${HELP_FILE} <<EOF
 Chapter 3.1 How Input is Split into Records (p21-p22)
 Chapter 5 Useful "One-liners" (p45)
 Chapter 8.3 Arithmetic Operators (p60-p61)

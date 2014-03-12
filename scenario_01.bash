@@ -16,7 +16,6 @@ main() {
 }
 
 generate_description_file() {
-echo "Writing description to ${DESCRIPTION_FILE}"
 cat > ${DESCRIPTION_FILE} <<EOF
 Write an awk program (one-liner is also ok) that prints the
 second column from the testdata_1.txt file.
@@ -30,7 +29,6 @@ EOF
 }
 
 generate_help_file() {
-echo "Writing help to ${HELP_FILE}"
 cat > ${HELP_FILE} <<EOF
 Chapter 2 Getting Started with awk (p13-p20)
 EOF

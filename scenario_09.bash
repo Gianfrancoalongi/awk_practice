@@ -16,7 +16,7 @@ main() {
 }
 
 generate_description_file() {
-cat > description.txt <<EOF
+cat > ${DESCRIPTION_FILE} <<EOF
 Write an awk program (one-liner is also ok) that prints two 
 columns, in the left column the numbers 0 to 9, and in the right 
 column, the amount of occurrences of the number in the left column 
@@ -31,7 +31,7 @@ EOF
 }
 
 generate_help_file() {
-cat > help.txt <<EOF
+cat > ${HELP_FILE} <<EOF
 Chapter 9.4 The for Statement (p75-p76)
 Chapter 10 Arrays in awk (p81-p88)
 EOF

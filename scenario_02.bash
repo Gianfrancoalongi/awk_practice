@@ -16,7 +16,7 @@ main() {
 }
 
 generate_description_file() {
-cat > description.txt <<EOF
+cat > ${DESCRIPTION_FILE} <<EOF
 Write an awk program (one-liner is also ok) that prints all
 entries which are males from the testdata_1.txt file.
 
@@ -29,7 +29,7 @@ EOF
 }
 
 generate_help_file() {
-cat > help.txt <<EOF
+cat > ${HELP_FILE} <<EOF
 Chapter 2 Getting Started with awk (p13-p20)
 EOF
 }

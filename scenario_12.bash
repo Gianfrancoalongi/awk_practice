@@ -16,7 +16,7 @@ main() {
 }
 
 generate_description_file() {
-cat > description.txt <<EOF
+cat > ${DESCRIPTION_FILE} <<EOF
 Write an awk program (one-liner is also ok) that produces a dot 
 matrix description of the ascii image in testdata_7.txt.
 A dot matrix description is a semicolon-delimited sequence of 
@@ -40,7 +40,7 @@ EOF
 }
 
 generate_help_file() {
-cat > help.txt <<EOF
+cat > ${HELP_FILE} <<EOF
 Chapter 3.5 Specifying how Fields are Separated (p25-p29)
 Chapter 9.4 The for Statement (p75-p76)
 EOF

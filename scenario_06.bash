@@ -16,7 +16,7 @@ main() {
 }
 
 generate_description_file() {
-cat > description.txt <<EOF
+cat > ${DESCRIPTION_FILE} <<EOF
 Write an awk program (one-liner is also ok) that prints names
 and days hired for all employees on floor 4 from the file
 testdata_1.txt. The output shall be in two columns, each column
@@ -35,7 +35,7 @@ EOF
 }
 
 generate_help_file() {
-cat > help.txt <<EOF
+cat > ${HELP_FILE} <<EOF
 Chapter 4.1 The print Statement (p35-p35)
 Chapter 4.2 Examples of print Statements (p35-p37)
 Chapter 4.5 Using printf Statements for

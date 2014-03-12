@@ -16,7 +16,7 @@ main() {
 }
 
 generate_description_file() {
-cat > description.txt <<EOF
+cat > ${DESCRIPTION_FILE} <<EOF
 Write an awk program (one-liner is also ok) that produces ascii 
 images based on the dot matrix description in testdata_6.txt.
 A dot matrix description is a sequence semicolon-delimited 
@@ -38,7 +38,7 @@ EOF
 }
 
 generate_help_file() {
-cat > help.txt <<EOF
+cat > ${HELP_FILE} <<EOF
 Chapter 9.4 The for Statement (p75-p76)
 Chapter 10.8 Multi-dimensional Arrays (p86-p87)
 Chapter 12 User-defined Functions (p95-p99)

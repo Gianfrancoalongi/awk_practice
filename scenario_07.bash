@@ -16,7 +16,7 @@ main() {
 }
 
 generate_description_file() {
-cat > description.txt <<EOF
+cat > ${DESCRIPTION_FILE} <<EOF
 Write an awk program (one-liner is also ok) that prints only the
 highest salary from the testdata_1.txt file.
 
@@ -29,7 +29,7 @@ EOF
 }
 
 generate_help_file() {
-cat > help.txt <<EOF
+cat > ${HELP_FILE} <<EOF
 Chapter 5 Useful "One-liners" (p45)
 Chapter 6.7 BEGIN and END Special Patterns (p53-p54)
 Chapter 13.2 Built-in Variables that Convey Information (p102-p103)

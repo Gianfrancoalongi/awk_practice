@@ -16,7 +16,7 @@ main() {
 }
 
 generate_description_file() {
-cat > description.txt <<EOF
+cat > ${DESCRIPTION_FILE} <<EOF
 Write an awk program (one-liner is also ok) that prints rectangles
 with width, height and using the letter as defined by the
 definitions in the testdata_5.txt file.
@@ -40,7 +40,7 @@ EOF
 }
 
 generate_help_file() {
-cat > help.txt <<EOF
+cat > ${HELP_FILE} <<EOF
 Chapter 8.4 String Concatenation (p61)
 Chapter 9.4 The for Statement (p75-p76)
 Chapter 12 User-defined Functions (p95-p99)

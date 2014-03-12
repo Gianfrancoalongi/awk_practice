@@ -16,7 +16,7 @@ main() {
 }
 
 generate_description_file() {
-cat > description.txt <<EOF
+cat > ${DESCRIPTION_FILE} <<EOF
 Write an awk program (one-liner is also ok) that prints all
 entries such that the person has been employed for more 
 than 3 year, is older than 40 and earns less than 21500 from
@@ -31,7 +31,7 @@ EOF
 }
 
 generate_help_file() {
-cat > help.txt <<EOF
+cat > ${HELP_FILE} <<EOF
 Chapter 6.3 Comparison Expressions as Patterns (p51-p51)
 Chapter 6.4 Boolean Operators and Patterns (p51-p52)
 Chapter 6.5 Expressions as Patterns (p52-p52)
