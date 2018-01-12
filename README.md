@@ -15,7 +15,7 @@ The scenario output will direct you to the AWK manual[1] and what chapters
 are necessary in order to succeed with the task.
 
 
-[1] http://tinyurl.com/the-awk-manual
+[1] http://www.cs.unibo.it/~renzo/doc/awk/nawkA4.pdf
 
 Tested on:
 * tested on MacOS Mavericks 10.9.1 - GNU bash, version 3.2.51(1)-release (x86_64-apple-darwin13)
